@@ -1,0 +1,18 @@
+<h3>{{vm.message}} <button><a href="/">Home</a></button></h3>
+<button class="btn btn-danger" ng-click="vm.logOut();" ng-if="vm.currentUser">Logout</button>
+<br>
+<h3 ng-if="vm.currentUser">Welcome back, {{vm.currentUser.name}}</h3>
+<hr>
+<h3 ng-if="vm.polls.length > 0">Your Polls</h3>
+<ul>
+    <li ng-repeat="poll in vm.polls">
+        Poll Name: {{poll.name}}  <button class="btn btn-link" ng-click="vm.deletePoll(poll._id)">Delete</button>
+        <a href="/poll/{{poll._id}}" class="btn btn-link">View</a>
+        <div ng-repeat="option in poll.options">
+            Option: {{option.name}}
+            Votes: {{option.votes}}
+        </div>
+    </li>
+</ul>
+<hr>
+<button><a href="/polls">Add Poll</a></button>

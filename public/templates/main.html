@@ -1,0 +1,18 @@
+
+<h3>{{vm.title}}</h3>
+<a href="/register">Register</a>
+<a href="/login">Login</a>
+<a ng-if="vm.user" href="/profile">Profile</a>
+<hr>
+<hr>
+<hr>
+<ul>
+    <li ng-repeat="poll in vm.polls">
+        Poll Name: {{poll.name}}
+        <a href="/poll/{{poll._id}}" class="btn btn-link">View</a>
+        <div ng-repeat="option in poll.options">
+            Option: {{option.name}}
+            Votes: {{option.votes}}
+        </div>
+    </li>
+</ul>
